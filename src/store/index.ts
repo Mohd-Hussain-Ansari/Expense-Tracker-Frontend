@@ -1,0 +1,15 @@
+import { configureStore } from '@reduxjs/toolkit';
+import transactionsReducer from '../features/transactions/transactionsSlice';
+import filtersReducer from '../features/filters/filtersSlice';
+import authReducer from '../features/auth/authSlice';
+
+export const store = configureStore({
+    reducer: {
+        transactions: transactionsReducer,
+        filters: filtersReducer,
+        auth: authReducer,
+    },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
